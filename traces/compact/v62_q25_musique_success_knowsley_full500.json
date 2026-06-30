@@ -1,0 +1,193 @@
+{
+  "id": "2hop__362107_652514",
+  "dataset": "musique",
+  "question": "In which borough was Callum McManaman born?",
+  "gold": "Knowsley",
+  "pred": "Metropolitan Borough of Knowsley",
+  "correct": 1.0,
+  "calls": 28,
+  "algorithm": "ldtv5",
+  "evidence_plans": [
+    {
+      "answer_slot": "borough",
+      "bridge_chain": "Callum McManaman -> Whiston -> Merseyside",
+      "selected_titles": [
+        "Callum McManaman",
+        "Whiston, Merseyside"
+      ],
+      "answer": "Merseyside",
+      "confidence": 0.95
+    },
+    {
+      "answer_slot": "borough of birth",
+      "bridge_chain": "Callum McManaman -> Whiston -> Merseyside",
+      "selected_titles": [
+        "Callum McManaman",
+        "Whiston, Merseyside"
+      ],
+      "answer": "Merseyside",
+      "confidence": 1.0
+    },
+    {
+      "answer_slot": "borough name",
+      "bridge_chain": "Callum McManaman -> Whiston -> Merseyside",
+      "selected_titles": [
+        "Callum McManaman",
+        "Whiston, Merseyside"
+      ],
+      "answer": "Merseyside",
+      "confidence": 1.0
+    }
+  ],
+  "resolved_evidence_plan": {
+    "answer_slot": "borough",
+    "bridge_chain": "Callum McManaman -> Whiston -> Merseyside",
+    "selected_titles": [
+      "Callum McManaman",
+      "Whiston, Merseyside"
+    ],
+    "answer": "Merseyside",
+    "confidence": 1.0,
+    "use_focused_context": true,
+    "reason": "The passage about Callum McManaman mentions he was born in Whiston, Merseyside. The Whiston, Merseyside passage confirms Whiston is part of Merseyside."
+  },
+  "plan_validation": {
+    "supported": false,
+    "edge_support": [
+      {
+        "edge": "Callum McManaman -> Whiston",
+        "supported": true,
+        "evidence": "Born in Whiston, Merseyside"
+      },
+      {
+        "edge": "Whiston -> Merseyside",
+        "supported": true,
+        "evidence": "Whiston is a large village and civil parish within the Metropolitan Borough of Knowsley in Merseyside, England."
+      },
+      {
+        "edge": "Merseyside -> borough",
+        "supported": false,
+        "evidence": "\"\""
+      }
+    ],
+    "confidence": 0.0,
+    "reason": "The plan incorrectly assumes that Merseyside is a borough without providing explicit evidence from the passages that Merseyside is a borough. The passages only indicate that Whiston is within the Metropolitan Borough of Knowsley in Merseyside, but do not state that Merseyside itself is a borough.",
+    "raw": "{\"supported\":false,\"edge_support\":[{\"edge\":\"Callum McManaman -> Whiston\",\"supported\":true,\"evidence\":\"Born in Whiston, Merseyside\"},{\"edge\":\"Whiston -> Merseyside\",\"supported\":true,\"evidence\":\"Whiston is a large village and civil parish within the Metropolitan Borough of Knowsley in Merseyside, England.\"},{\"edge\":\"Merseyside -> borough\",\"supported\":false,\"evidence\":\"\\\"\\\"\"}],\"confidence\":0.0,\"reason\":\"The plan incorrectly assumes that Merseyside is a borough without providing explicit evidence from the passages that Merseyside is a borough. The passages only indicate that Whiston is within the Metropolitan Borough of Knowsley in Merseyside, but do not state that Merseyside itself is a borough.\"}"
+  },
+  "contract_selection": {
+    "chosen_id": "focused_evidence",
+    "model_chosen_id": "focused_evidence",
+    "accepted_non_full": true,
+    "nonanswer_replaced": false,
+    "full_value": 0.0,
+    "chosen_value": 0.48,
+    "leaf_values": {
+      "full": 0.0,
+      "focused_evidence": 0.48
+    },
+    "scores": [
+      {
+        "candidate_id": "full",
+        "answers_question": false,
+        "answer_type_match": false,
+        "supported": false,
+        "minimal": false,
+        "confidence": 0.0,
+        "reason": "The answer provided does not specify a borough, instead mentioning the Metropolitan Borough of Knowsley, which is more specific than required."
+      },
+      {
+        "candidate_id": "focused_evidence",
+        "answers_question": true,
+        "answer_type_match": true,
+        "supported": true,
+        "minimal": true,
+        "confidence": 0.0,
+        "reason": "This answer specifies the borough (Metropolitan Borough of Knowsley) and is directly supported by the passage, meeting the minimal requirement."
+      }
+    ],
+    "leaves": [
+      {
+        "candidate_id": "full",
+        "source": "full_tree",
+        "answer": "Callum McManaman was born in the Metropolitan Borough of Knowsley.",
+        "default": true
+      },
+      {
+        "candidate_id": "focused_evidence",
+        "source": "focused_evidence_tree",
+        "answer": "Metropolitan Borough of Knowsley",
+        "default": false
+      }
+    ],
+    "raw": "{\"chosen_id\":\"focused_evidence\",\"scores\":[{\"candidate_id\":\"full\",\"answers_question\":false,\"answer_type_match\":false,\"supported\":false,\"minimal\":false,\"confidence\":0.0,\"reason\":\"The answer provided does not specify a borough, instead mentioning the Metropolitan Borough of Knowsley, which is more specific than required.\"},{\"candidate_id\":\"focused_evidence\",\"answers_question\":true,\"answer_type_match\":true,\"supported\":true,\"minimal\":true,\"confidence\":0.0,\"reason\":\"This answer specifies the borough (Metropolitan Borough of Knowsley) and is directly supported by the passage, meeting the minimal requirement.\"}],\"reason\":\"brief\"}",
+    "reason": "brief"
+  },
+  "projection_agreement_audit": {
+    "changed": false,
+    "reason": "audit-not-confident",
+    "groups": [
+      {
+        "group_id": "g0",
+        "key": "callum mcmanaman was born in metropolitan borough of knowsley",
+        "answer": "Callum McManaman was born in the Metropolitan Borough of Knowsley.",
+        "sources": [
+          "full"
+        ],
+        "source_ids": [
+          "full"
+        ]
+      },
+      {
+        "group_id": "g1",
+        "key": "metropolitan borough of knowsley",
+        "answer": "Metropolitan Borough of Knowsley",
+        "sources": [
+          "focused_evidence",
+          "focused_contract"
+        ],
+        "source_ids": [
+          "focused_evidence",
+          "focused_contract"
+        ]
+      }
+    ],
+    "raw": {
+      "chosen_group": "g0",
+      "confidence": 0.0,
+      "reason": "The passages do not provide any specific information about Callum McManaman's birthplace. The provided sources do not contain relevant details to determine the borough where Callum McManaman was born."
+    },
+    "raw_text": "{\"chosen_group\":\"g0\",\"confidence\":0.0,\"reason\":\"The passages do not provide any specific information about Callum McManaman's birthplace. The provided sources do not contain relevant details to determine the borough where Callum McManaman was born.\"}"
+  },
+  "tree_predictions": {
+    "full": "Callum McManaman was born in the Metropolitan Borough of Knowsley.",
+    "focused_evidence": "Metropolitan Borough of Knowsley",
+    "focused_contract": "Metropolitan Borough of Knowsley"
+  },
+  "full_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  },
+  "focused_evidence_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  },
+  "focused_contract_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  }
+}

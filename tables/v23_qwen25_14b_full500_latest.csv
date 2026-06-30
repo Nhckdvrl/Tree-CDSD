@@ -1,0 +1,3 @@
+model,dataset,method,n,local_em_pct,local_f1_pct,judge_acc_pct,best_cdsd_judge_pct,delta_vs_best_cdsd,avg_calls,errors,source,judge_source
+Qwen2.5-14B,HotpotQA,LDTD v23 / Adaptive Role-Edge Debate Tree,500,69.0,73.79,77.8,81.2,-3.4,31.52,0,results/ldt/v23/hotpotqa_ldtd_v23_granularity_guard_q25_14b_full500.jsonl,analysis/ldt/v23/ldtd_v23_q25_14b_hotpotqa_full500_q32judge.jsonl
+Qwen2.5-14B,2WikiMultiHopQA,LDTD v23 / Adaptive Role-Edge Debate Tree,500,73.6,70.84,73.2,81.6,-8.4,41.4,0,results/ldt/v23/2wikimultihop_ldtd_v23_granularity_guard_q25_14b_full500.jsonl,analysis/ldt/v23/ldtd_v23_q25_14b_2wikimultihop_full500_q32judge.jsonl

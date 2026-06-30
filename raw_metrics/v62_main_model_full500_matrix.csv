@@ -1,0 +1,16 @@
+model,dataset,v62_judge,v410_or_v4_judge,v3_judge,cdsd_judge
+qwen3.5-9b,hotpotqa,84.6,83.8,83.4,83.2
+qwen3.5-9b,2wikimultihopqa,82.4,82.4,82.2,82.2
+qwen3.5-9b,musique,71.4,70.0,65.2,65.2
+qwen3.5-9b,strategyqa,95.8,95.8,95.8,95.8
+qwen3-8b,hotpotqa,82.0,81.0,80.8,80.8
+qwen3-8b,2wikimultihopqa,83.4,83.2,83.2,83.2
+qwen3-8b,musique,59.6,59.6,58.8,58.8
+qwen3-8b,strategyqa,93.0,93.0,93.0,93.0
+qwen2.5-14b,hotpotqa,82.2,80.8,81.2,81.2
+qwen2.5-14b,2wikimultihopqa,81.8,81.2,81.4,81.4
+qwen2.5-14b,musique,61.2,58.6,58.4,58.4
+qwen2.5-14b,strategyqa,94.0,94.0,94.0,94.0
+qwen2.5-14b,macro,79.8,78.65,78.75,78.75
+qwen3-8b,macro,79.5,79.2,78.95,78.95
+qwen3.5-9b,macro,83.55,83.0,81.65,81.6

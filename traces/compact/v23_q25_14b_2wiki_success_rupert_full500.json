@@ -1,0 +1,235 @@
+{
+  "id": "2002bf0c0bb011ebab90acde48001122",
+  "dataset": "2wikimultihop",
+  "question": "Who is Catherine Of Pomerania, Countess Palatine Of Neumarkt's father-in-law?",
+  "gold": "Rupert",
+  "pred": "Rupert III of the Palatinate",
+  "correct": 1.0,
+  "calls": 31,
+  "n_debates": 1,
+  "algorithm": "ldtd",
+  "config": {
+    "max_depth": 5,
+    "per_parent_beam": 2,
+    "global_beam": 6,
+    "debate_budget": 24,
+    "debate_rounds": 1,
+    "uncertain_threshold": 0.52,
+    "final_confidence": 0.82,
+    "min_depth_before_final": 1,
+    "final_top_paths": 8,
+    "llm_merge": true,
+    "force_keep_best": true,
+    "use_contract": false,
+    "use_synthesis": false,
+    "use_slot_grounding": false,
+    "use_terminality_debate": true,
+    "keep_contested_terminals": true,
+    "open_frontier_patience": true,
+    "effective_open_frontier_patience": true,
+    "open_frontier_margin": 0.12,
+    "strict_role_edges": true,
+    "strict_role_edges_mode": "auto"
+  },
+  "nodes": [
+    {
+      "node_id": "n1",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Rupert III of the Palatinate is Catherine of Pomerania's father-in-law.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": true,
+      "answer": "Rupert III of the Palatinate",
+      "support_agents": [
+        0,
+        1
+      ]
+    },
+    {
+      "node_id": "n2",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Rupert III of the Palatinate is John, Count Palatine of Neumarkt's father.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        2
+      ]
+    },
+    {
+      "node_id": "n3",
+      "depth": 2,
+      "parent_id": "n2",
+      "text": "Rupert III of the Palatinate is the father-in-law of Catherine of Pomerania, Countess Palatine of Neumarkt.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1
+      ]
+    },
+    {
+      "node_id": "n4",
+      "depth": 2,
+      "parent_id": "n2",
+      "text": "Catherine of Pomerania's father-in-law is Rupert III of the Palatinate",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": true,
+      "answer": "Rupert III of the Palatinate",
+      "support_agents": [
+        2
+      ]
+    },
+    {
+      "node_id": "n5",
+      "depth": 3,
+      "parent_id": "n3",
+      "text": "Rupert III of the Palatinate is Catherine of Pomerania's father-in-law.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": true,
+      "answer": "Rupert III of the Palatinate",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "layer_summaries": [
+    {
+      "depth": 1,
+      "frontier_in": [
+        "n0"
+      ],
+      "frontier_out": [
+        "n2"
+      ],
+      "parents": [
+        {
+          "parent_id": "n0",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n0_d1_c0",
+              "is_terminal": true,
+              "answer": "Rupert III of the Palatinate",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n1",
+            "n2"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 2,
+      "frontier_in": [
+        "n2"
+      ],
+      "frontier_out": [
+        "n3"
+      ],
+      "parents": [
+        {
+          "parent_id": "n2",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n2_d2_c1",
+              "is_terminal": true,
+              "answer": "Rupert III of the Palatinate",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n3",
+            "n4"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 3,
+      "frontier_in": [
+        "n3"
+      ],
+      "frontier_out": [],
+      "parents": [
+        {
+          "parent_id": "n3",
+          "proposal_count": 3,
+          "candidate_count": 1,
+          "relations": {
+            "used": false,
+            "reason": "single-candidate"
+          },
+          "terminality": [
+            {
+              "candidate_id": "n3_d3_c0",
+              "is_terminal": true,
+              "answer": "Rupert III of the Palatinate",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n5"
+          ]
+        }
+      ],
+      "stop": {
+        "reason": "confident_debated_path",
+        "node_id": "n1",
+        "path_score": 1.0
+      }
+    }
+  ],
+  "final_path_debate": {
+    "debated": true,
+    "reason": "terminal_path_debate",
+    "chosen_path": "p0",
+    "resolution": {
+      "answer": "Rupert III of the Palatinate",
+      "chosen_path": "p0",
+      "confidence": 1.0,
+      "rationale": "Path p0 correctly establishes Rupert III of the Palatinate as Catherine of Pomerania's father-in-law by showing he is John's father and John is Catherine's husband, thus fulfilling the required role edges.",
+      "role_edge_audit": "Path p0 shows Rupert III as John's father and John as Catherine's husband, correctly identifying Rupert III as Catherine's father-in-law."
+    },
+    "path_count": 3
+  }
+}

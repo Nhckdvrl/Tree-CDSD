@@ -1,0 +1,320 @@
+{
+  "id": "2hop__697790_864352",
+  "dataset": "musique",
+  "question": "Who is the child of Caroline LeRoy's spouse?",
+  "gold": "Fletcher Webster",
+  "pred": "Fletcher Webster",
+  "correct": 1.0,
+  "calls": 59,
+  "n_debates": 3,
+  "algorithm": "ldtd",
+  "config": {
+    "max_depth": 5,
+    "per_parent_beam": 2,
+    "global_beam": 6,
+    "debate_budget": 24,
+    "debate_rounds": 1,
+    "uncertain_threshold": 0.52,
+    "final_confidence": 0.82,
+    "min_depth_before_final": 1,
+    "final_top_paths": 8,
+    "llm_merge": true,
+    "force_keep_best": true,
+    "use_contract": false,
+    "use_synthesis": false,
+    "use_slot_grounding": false,
+    "use_terminality_debate": true,
+    "keep_contested_terminals": true
+  },
+  "nodes": [
+    {
+      "node_id": "n1",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Caroline LeRoy's spouse is Daniel Webster.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n2",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Caroline LeRoy's spouse is Daniel Webster.",
+      "score": 0.54,
+      "status": "uncertain",
+      "is_final": true,
+      "answer": "Daniel Webster",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n3",
+      "depth": 2,
+      "parent_id": "n1",
+      "text": "Caroline LeRoy's spouse, Daniel Webster, is the father of Fletcher Webster.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n4",
+      "depth": 2,
+      "parent_id": "n1",
+      "text": "Caroline LeRoy's spouse, Daniel Webster, is the father of Caroline LeRoy's children.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        2
+      ]
+    },
+    {
+      "node_id": "n5",
+      "depth": 3,
+      "parent_id": "n3",
+      "text": "Fletcher Webster is the child of Daniel Webster and Caroline LeRoy.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": true,
+      "answer": "Fletcher Webster",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n6",
+      "depth": 3,
+      "parent_id": "n4",
+      "text": "Caroline LeRoy's children are the children of Daniel Webster.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "layer_summaries": [
+    {
+      "depth": 1,
+      "frontier_in": [
+        "n0"
+      ],
+      "frontier_out": [
+        "n1"
+      ],
+      "parents": [
+        {
+          "parent_id": "n0",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "conflict",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "pairwise conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n0_d1_c0",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "child of",
+              "action": null
+            },
+            {
+              "candidate_id": "n0_d1_challenge_a1",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "child of",
+              "action": null
+            },
+            {
+              "candidate_id": "n0_d1_c0_contested_terminal",
+              "is_terminal": true,
+              "answer": "Daniel Webster",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            },
+            {
+              "candidate_id": "n0_d1_challenge_a1_contested_terminal",
+              "is_terminal": true,
+              "answer": "Caroline LeRoy's spouse is Herman LeRoy",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            }
+          ],
+          "added_children": [
+            "n1",
+            "n2"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 2,
+      "frontier_in": [
+        "n1"
+      ],
+      "frontier_out": [
+        "n3",
+        "n4"
+      ],
+      "parents": [
+        {
+          "parent_id": "n1",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "conflict",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "pairwise conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n1_d2_c0",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "child of Caroline LeRoy's spouse",
+              "action": null
+            },
+            {
+              "candidate_id": "n1_d2_challenge_a2",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "the specific child of Caroline LeRoy's spouse",
+              "action": null
+            },
+            {
+              "candidate_id": "n1_d2_c0_contested_terminal",
+              "is_terminal": true,
+              "answer": "Caroline LeRoy's spouse, Daniel Webster, is the father of Fletcher Webster",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            },
+            {
+              "candidate_id": "n1_d2_challenge_a2_contested_terminal",
+              "is_terminal": true,
+              "answer": "Caroline LeRoy's children",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            }
+          ],
+          "added_children": [
+            "n3",
+            "n4"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 3,
+      "frontier_in": [
+        "n3",
+        "n4"
+      ],
+      "frontier_out": [
+        "n6"
+      ],
+      "parents": [
+        {
+          "parent_id": "n3",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n3_d3_c0",
+              "is_terminal": true,
+              "answer": "Fletcher Webster",
+              "missing_hop": "",
+              "action": null
+            },
+            {
+              "candidate_id": "n3_d3_challenge_a0",
+              "is_terminal": true,
+              "answer": "Fletcher Webster",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n5"
+          ]
+        },
+        {
+          "parent_id": "n4",
+          "proposal_count": 3,
+          "candidate_count": 1,
+          "relations": {
+            "used": false,
+            "reason": "single-candidate"
+          },
+          "terminality": [],
+          "added_children": [
+            "n6"
+          ]
+        }
+      ],
+      "stop": {
+        "reason": "confident_debated_path",
+        "node_id": "n5",
+        "path_score": 1.0
+      }
+    }
+  ],
+  "final_path_debate": {
+    "debated": true,
+    "reason": "terminal_path_debate",
+    "chosen_path": "p0",
+    "resolution": {
+      "answer": "Fletcher Webster",
+      "chosen_path": "p0",
+      "confidence": 1.0,
+      "rationale": "Path p0 correctly identifies Fletcher Webster as the child of Caroline LeRoy and Daniel Webster, directly supported by the passage stating that Fletcher Webster was the son of Daniel Webster and Grace Fletcher Webster, and Caroline LeRoy was the second wife of Daniel Webster."
+    },
+    "path_count": 2
+  }
+}

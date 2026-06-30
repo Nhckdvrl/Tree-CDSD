@@ -1,0 +1,192 @@
+{
+  "id": "2hop__697790_864352",
+  "dataset": "musique",
+  "question": "Who is the child of Caroline LeRoy's spouse?",
+  "gold": "Fletcher Webster",
+  "pred": "Fletcher Webster",
+  "correct": 1.0,
+  "calls": 33,
+  "algorithm": "ldtv5",
+  "evidence_plans": [
+    {
+      "answer_slot": "name of the child",
+      "bridge_chain": "Caroline LeRoy -> spouse (Daniel Webster) -> child (Fletcher Webster)",
+      "selected_titles": [
+        "Caroline LeRoy",
+        "Fletcher Webster"
+      ],
+      "answer": "Fletcher Webster",
+      "confidence": 1.0
+    },
+    {
+      "answer_slot": "child name",
+      "bridge_chain": "Caroline LeRoy -> spouse (Daniel Webster) -> child (Fletcher Webster)",
+      "selected_titles": [
+        "Caroline LeRoy",
+        "Fletcher Webster"
+      ],
+      "answer": "Fletcher Webster",
+      "confidence": 1.0
+    },
+    {
+      "answer_slot": "name of the child",
+      "bridge_chain": "Caroline LeRoy -> spouse (Daniel Webster) -> child (Fletcher Webster)",
+      "selected_titles": [
+        "Caroline LeRoy",
+        "Fletcher Webster"
+      ],
+      "answer": "Fletcher Webster",
+      "confidence": 1.0
+    }
+  ],
+  "resolved_evidence_plan": {
+    "answer_slot": "name of the child",
+    "bridge_chain": "Caroline LeRoy -> spouse (Daniel Webster) -> child (Fletcher Webster)",
+    "selected_titles": [
+      "Caroline LeRoy",
+      "Fletcher Webster"
+    ],
+    "answer": "Fletcher Webster",
+    "confidence": 1.0,
+    "use_focused_context": true,
+    "reason": "All three plans propose the identical bridge chain and selected titles. The chain correctly links Caroline LeRoy to her spouse Daniel Webster (via Passage 11) and Daniel Webster to his child Fletcher Webster (via Passage 1). Since the plans agree on the wording of the question and the resulting chain, the majority title preference rule is not needed; the plan matching the question wording is selected by default."
+  },
+  "plan_validation": {
+    "supported": false,
+    "edge_support": [
+      {
+        "edge": "Caroline LeRoy -> spouse (Daniel Webster)",
+        "supported": true,
+        "evidence": "Caroline LeRoy Webster... was the second wife of 19th Century statesman Daniel Webster."
+      },
+      {
+        "edge": "Daniel Webster -> child (Fletcher Webster)",
+        "supported": false,
+        "evidence": ""
+      }
+    ],
+    "confidence": 0.0,
+    "reason": "The passage identifies Fletcher Webster as the son of Daniel Webster and Grace Fletcher Webster. It does not state that Grace Fletcher Webster is Caroline LeRoy, nor does it establish that Fletcher Webster is the child of Caroline LeRoy's spouse (Daniel Webster) in the context of her marriage, as the mother's name differs from Caroline's. The plan relies on an assumption that the spouse's child mentioned is the same as the one in the second passage without explicit textual linkage.",
+    "raw": "{\n\"supported\": false,\n\"edge_support\": [\n{\n\"edge\": \"Caroline LeRoy -> spouse (Daniel Webster)\",\n\"supported\": true,\n\"evidence\": \"Caroline LeRoy Webster... was the second wife of 19th Century statesman Daniel Webster.\"\n},\n{\n\"edge\": \"Daniel Webster -> child (Fletcher Webster)\",\n\"supported\": false,\n\"evidence\": \"\"\n}\n],\n\"confidence\": 0.0,\n\"reason\": \"The passage identifies Fletcher Webster as the son of Daniel Webster and Grace Fletcher Webster. It does not state that Grace Fletcher Webster is Caroline LeRoy, nor does it establish that Fletcher Webster is the child of Caroline LeRoy's spouse (Daniel Webster) in the context of her marriage, as the mother's name differs from Caroline's. The plan relies on an assumption that the spouse's child mentioned is the same as the one in the second passage without explicit textual linkage.\"\n}"
+  },
+  "contract_selection": {
+    "chosen_id": "focused_contract",
+    "model_chosen_id": "focused_contract",
+    "accepted_non_full": true,
+    "nonanswer_replaced": false,
+    "full_value": 0.24,
+    "chosen_value": 1.38,
+    "leaf_values": {
+      "full": 0.24,
+      "focused_contract": 1.38
+    },
+    "scores": [
+      {
+        "candidate_id": "full",
+        "answers_question": true,
+        "answer_type_match": true,
+        "supported": false,
+        "minimal": false,
+        "confidence": 0.0,
+        "reason": "The full tree answer 'Daniel Fletcher Webster' is not minimal; 'Fletcher Webster' is the common name used in the text and is sufficient."
+      },
+      {
+        "candidate_id": "focused_contract",
+        "answers_question": true,
+        "answer_type_match": true,
+        "supported": true,
+        "minimal": true,
+        "confidence": 0.9,
+        "reason": "Passage 'Fletcher Webster' explicitly states he is the son of Daniel Webster. Passage 'Caroline LeRoy' identifies her as the second wife of Daniel Webster. Therefore, Fletcher Webster is the child of Caroline LeRoy's spouse. The name 'Fletcher Webster' is the exact identifier used in the text."
+      }
+    ],
+    "leaves": [
+      {
+        "candidate_id": "full",
+        "source": "full_tree",
+        "answer": "Daniel Fletcher Webster",
+        "default": true
+      },
+      {
+        "candidate_id": "focused_contract",
+        "source": "focused_contract_tree",
+        "answer": "Fletcher Webster",
+        "default": false
+      }
+    ],
+    "raw": "{\n\"chosen_id\": \"focused_contract\",\n\"scores\": [\n{\"candidate_id\": \"full\", \"answers_question\": true, \"answer_type_match\": true, \"supported\": false, \"minimal\": false, \"confidence\": 0.0, \"reason\": \"The full tree answer 'Daniel Fletcher Webster' is not minimal; 'Fletcher Webster' is the common name used in the text and is sufficient.\"},\n{\"candidate_id\": \"focused_contract\", \"answers_question\": true, \"answer_type_match\": true, \"supported\": true, \"minimal\": true, \"confidence\": 0.9, \"reason\": \"Passage 'Fletcher Webster' explicitly states he is the son of Daniel Webster. Passage 'Caroline LeRoy' identifies her as the second wife of Daniel Webster. Therefore, Fletcher Webster is the child of Caroline LeRoy's spouse. The name 'Fletcher Webster' is the exact identifier used in the text.\"}\n],\n\"reason\": \"The plan validation failed because the text does not explicitly link Grace Fletcher Webster to Caroline LeRoy. However, the question asks for the child of Caroline LeRoy's spouse (Daniel Webster). The passage 'Fletcher Webster' confirms Fletcher is Daniel Webster's son. The passage 'Caroline LeRoy' confirms she is Daniel Webster's wife. Thus, Fletcher Webster is the child of her spouse. The 'focused_contract' candidate 'Fletcher Webster' is the minimal, supported answer derived from the independent passages, whereas 'Daniel Fletcher Webster' is a less minimal variant.\"\n}",
+    "reason": "The plan validation failed because the text does not explicitly link Grace Fletcher Webster to Caroline LeRoy. However, the question asks for the child of Caroline LeRoy's spouse (Daniel Webster). The passage 'Fletcher Webster' confirms Fletcher is Daniel Webster's son. The passage 'Caroline LeRoy' confirms she is Daniel Webster's wife. Thus, Fletcher Webster is the child of her spouse. The 'focused_contract' candidate 'Fletcher Webster' is the minimal, supported answer derived from the independent passages, whereas 'Daniel Fletcher Webster' is a less minimal variant."
+  },
+  "projection_agreement_audit": {
+    "changed": false,
+    "from_group": "g1",
+    "to_group": "g1",
+    "answer": "Fletcher Webster",
+    "selected_source": "focused_contract",
+    "confidence": 0.9,
+    "groups": [
+      {
+        "group_id": "g0",
+        "key": "daniel fletcher webster",
+        "answer": "Daniel Fletcher Webster",
+        "sources": [
+          "full",
+          "focused_evidence"
+        ],
+        "source_ids": [
+          "full",
+          "focused_evidence"
+        ]
+      },
+      {
+        "group_id": "g1",
+        "key": "fletcher webster",
+        "answer": "Fletcher Webster",
+        "sources": [
+          "focused_contract"
+        ],
+        "source_ids": [
+          "focused_contract"
+        ]
+      }
+    ],
+    "raw": {
+      "chosen_group": "g1",
+      "confidence": 0.9,
+      "reason": "The question asks for the child of Caroline LeRoy's spouse. The 'Caroline LeRoy' passage identifies her spouse as Daniel Webster. The 'Fletcher Webster' passage identifies Daniel Fletcher Webster as the son of Daniel Webster. While 'Daniel Fletcher Webster' is the full name, 'Fletcher Webster' is the common name explicitly used in the text ('commonly known as Fletcher Webster') and is the direct answer derived from the specific passages linking the father (Daniel Webster) to the child. Group g1's 'focused_contract' approach correctly isolates the entity defined by the common name in the relevant context without unnecessary expansion not requested or supported as a primary identifier in the specific 'Caroline LeRoy' context."
+    },
+    "raw_text": "{\"chosen_group\":\"g1\",\"confidence\":0.9,\"reason\":\"The question asks for the child of Caroline LeRoy's spouse. The 'Caroline LeRoy' passage identifies her spouse as Daniel Webster. The 'Fletcher Webster' passage identifies Daniel Fletcher Webster as the son of Daniel Webster. While 'Daniel Fletcher Webster' is the full name, 'Fletcher Webster' is the common name explicitly used in the text ('commonly known as Fletcher Webster') and is the direct answer derived from the specific passages linking the father (Daniel Webster) to the child. Group g1's 'focused_contract' approach correctly isolates the entity defined by the common name in the relevant context without unnecessary expansion not requested or supported as a primary identifier in the specific 'Caroline LeRoy' context.\"}"
+  },
+  "tree_predictions": {
+    "full": "Daniel Fletcher Webster",
+    "focused_evidence": "Daniel Fletcher Webster",
+    "focused_contract": "Fletcher Webster"
+  },
+  "full_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  },
+  "focused_evidence_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  },
+  "focused_contract_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  }
+}

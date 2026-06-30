@@ -1,0 +1,85 @@
+model: qwen2.5-7b-instruct
+endpoint: http://localhost:8201/v1
+api_key: EMPTY
+max_tokens: 1024
+n_agents: 3
+
+# Homogeneous agents differentiated by persona + temperature.
+personas:
+  - "You are a careful, methodical problem-solver. Work step by step and double-check every arithmetic and factual step before moving on."
+  - "You are a skeptical analyst. Question assumptions, watch for misread details and common mistakes, and verify each step independently."
+  - "You are a resourceful solver who considers alternative interpretations and solution paths before committing to an answer."
+temperatures: [0.7, 0.7, 0.9]
+
+# De-skewed personas for the soft CDSD variant (cdsds): constructive, chain-completing,
+# without the over-cautious framing that made the judge collapse to "insufficient info".
+personas_soft:
+  - "You are a careful solver. Re-derive each step from the given facts and passages, and carry the reasoning through to a concrete answer."
+  - "You are a verifier. Check each step against the facts/passages and combine information across them when needed; prefer a concrete conclusion unless the facts truly conflict."
+  - "You are a solver who connects evidence across passages to finish the multi-hop chain and commits to the most supported answer."
+temperatures_soft: [0.6, 0.6, 0.8]
+
+cot:
+  temperature: 0.0
+sc:
+  samples: 3
+  temperature: 0.8
+mad:
+  rounds: 2
+cdsd:
+  max_iters: 6
+  debate_rounds: 1
+
+ldt:
+  max_depth: 5
+  per_parent_beam: 2
+  global_beam: 6
+  debate_budget: 20
+  uncertain_threshold: 0.52
+  final_confidence: 0.82
+  min_depth_before_final: 2
+  no_llm_merge: false
+
+ldtv2:
+  max_depth: 5
+  per_parent_beam: 2
+  global_beam: 6
+  debate_budget: 20
+  uncertain_threshold: 0.52
+  final_confidence: 0.96
+  min_depth_before_final: 3
+  no_llm_merge: false
+  final_debate_rounds: 1
+  final_top_paths: 8
+
+ldtv3:
+  # Tree-CDSD hybrid: each solver's structured node chain becomes a tree branch;
+  # only evidence/relation-gated debate resolutions are committed to the trunk.
+  final_top_paths: 12
+  max_branch_nodes: 8
+  no_commit_select: true
+  verified_final: false
+  audit_consensus: false
+  recover_nonanswer: true
+  minimal_final_audit: false
+
+ldtv4:
+  # Evidence-plan tree before Tree-CDSD reasoning. Experimental benchmark-facing
+  # branch for full-context multi-hop distractor reduction.
+  final_top_paths: 12
+  max_branch_nodes: 8
+  no_commit_select: false
+  verified_final: false
+  audit_consensus: false
+  recover_nonanswer: true
+
+ldtv5:
+  # Clean dual-tree LDT: evidence-plan tree + full reasoning tree, with an optional
+  # focused tree and a contract selector over terminal leaves.
+  final_top_paths: 12
+  max_branch_nodes: 8
+  no_commit_select: false
+  verified_final: false
+  audit_consensus: false
+  recover_nonanswer: true
+  minimal_final_audit: true

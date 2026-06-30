@@ -1,0 +1,375 @@
+{
+  "id": "2hop__362107_652514",
+  "dataset": "musique",
+  "question": "In which borough was Callum McManaman born?",
+  "gold": "Knowsley",
+  "pred": "Knowsley",
+  "correct": 1.0,
+  "calls": 65,
+  "n_debates": 3,
+  "algorithm": "ldtd",
+  "config": {
+    "max_depth": 5,
+    "per_parent_beam": 2,
+    "global_beam": 6,
+    "debate_budget": 24,
+    "debate_rounds": 1,
+    "uncertain_threshold": 0.52,
+    "final_confidence": 0.82,
+    "min_depth_before_final": 1,
+    "final_top_paths": 8,
+    "llm_merge": true,
+    "force_keep_best": true,
+    "use_contract": false,
+    "use_synthesis": false,
+    "use_slot_grounding": false,
+    "use_terminality_debate": true,
+    "keep_contested_terminals": true
+  },
+  "nodes": [
+    {
+      "node_id": "n1",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Callum McManaman was born in Whiston, Merseyside.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n2",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Callum McManaman was born in Whiston, Merseyside.",
+      "score": 0.54,
+      "status": "uncertain",
+      "is_final": true,
+      "answer": "Whiston",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n3",
+      "depth": 2,
+      "parent_id": "n1",
+      "text": "Whiston is part of the Metropolitan Borough of Knowsley.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n4",
+      "depth": 3,
+      "parent_id": "n3",
+      "text": "The Metropolitan Borough of Knowsley is a borough in Merseyside.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n5",
+      "depth": 4,
+      "parent_id": "n4",
+      "text": "The Metropolitan Borough of Knowsley is part of Merseyside.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n6",
+      "depth": 4,
+      "parent_id": "n4",
+      "text": "The Metropolitan Borough of Knowsley is part of Merseyside.",
+      "score": 0.54,
+      "status": "uncertain",
+      "is_final": true,
+      "answer": "Knowsley",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n7",
+      "depth": 5,
+      "parent_id": "n5",
+      "text": "The Metropolitan Borough of Knowsley is part of Merseyside.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "layer_summaries": [
+    {
+      "depth": 1,
+      "frontier_in": [
+        "n0"
+      ],
+      "frontier_out": [
+        "n1"
+      ],
+      "parents": [
+        {
+          "parent_id": "n0",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "conflict",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "pairwise conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n0_d1_c0",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "borough",
+              "action": null
+            },
+            {
+              "candidate_id": "n0_d1_challenge_a1",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "borough",
+              "action": null
+            },
+            {
+              "candidate_id": "n0_d1_c0_contested_terminal",
+              "is_terminal": true,
+              "answer": "Whiston",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            },
+            {
+              "candidate_id": "n0_d1_challenge_a1_contested_terminal",
+              "is_terminal": true,
+              "answer": "Rainhill",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            }
+          ],
+          "added_children": [
+            "n1",
+            "n2"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 2,
+      "frontier_in": [
+        "n1"
+      ],
+      "frontier_out": [
+        "n3"
+      ],
+      "parents": [
+        {
+          "parent_id": "n1",
+          "proposal_count": 3,
+          "candidate_count": 1,
+          "relations": {
+            "used": false,
+            "reason": "single-candidate"
+          },
+          "terminality": [],
+          "added_children": [
+            "n3"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 3,
+      "frontier_in": [
+        "n3"
+      ],
+      "frontier_out": [
+        "n4"
+      ],
+      "parents": [
+        {
+          "parent_id": "n3",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n3_d3_challenge_a0",
+              "is_terminal": true,
+              "answer": "Knowsley",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n4"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 4,
+      "frontier_in": [
+        "n4"
+      ],
+      "frontier_out": [
+        "n5"
+      ],
+      "parents": [
+        {
+          "parent_id": "n4",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "conflict",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "pairwise conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n4_d4_c0",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "The specific borough within Merseyside where Whiston is located",
+              "action": null
+            },
+            {
+              "candidate_id": "n4_d4_challenge_a1",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "determine the specific borough within the Liverpool City Region that Whiston belongs to",
+              "action": null
+            },
+            {
+              "candidate_id": "n4_d4_c0_contested_terminal",
+              "is_terminal": true,
+              "answer": "Knowsley",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            },
+            {
+              "candidate_id": "n4_d4_challenge_a1_contested_terminal",
+              "is_terminal": true,
+              "answer": "The Metropolitan Borough of Knowsley is part of the Liverpool City Region",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            }
+          ],
+          "added_children": [
+            "n5",
+            "n6"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 5,
+      "frontier_in": [
+        "n5"
+      ],
+      "frontier_out": [
+        "n7"
+      ],
+      "parents": [
+        {
+          "parent_id": "n5",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n5_d5_challenge_a2",
+              "is_terminal": true,
+              "answer": "Knowsley",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n7"
+          ]
+        }
+      ],
+      "stop": null
+    }
+  ],
+  "final_path_debate": {
+    "debated": true,
+    "reason": "terminal_path_debate",
+    "chosen_path": "p1",
+    "resolution": {
+      "answer": "Knowsley",
+      "chosen_path": "p1",
+      "confidence": 0.95,
+      "rationale": "Path p1 provides a logical chain connecting Callum McManaman's birthplace (Whiston, Merseyside) to the borough (Knowsley) through accepted nodes, establishing the relationship between Whiston and the borough level, which path p0 lacks."
+    },
+    "path_count": 2
+  }
+}

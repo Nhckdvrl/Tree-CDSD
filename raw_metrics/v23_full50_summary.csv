@@ -1,0 +1,11 @@
+model,dataset,n,em_pct,f1_pct,judge_pct,calls,path
+qwen2.5-14b,2wikimultihop,50,84.0,81.8,86.0,45.18,results/ldt/v23/2wikimultihop_ldtd_v23_granularity_guard_q25_14b_full50.jsonl
+qwen3-4b,2wikimultihop,50,68.0,65.83,,23.34,results/ldt/v23/2wikimultihop_ldtd_v23_granularity_guard_q3_4b_full50.jsonl
+qwen3-8b,2wikimultihop,50,82.0,79.22,84.0,25.52,results/ldt/v23/2wikimultihop_ldtd_v23_granularity_guard_q3_8b_full50.jsonl
+qwen2.5-14b,hotpotqa,50,76.0,77.41,80.0,29.24,results/ldt/v23/hotpotqa_ldtd_v23_granularity_guard_q25_14b_full50.jsonl
+qwen3-4b,hotpotqa,50,70.0,72.02,,19.18,results/ldt/v23/hotpotqa_ldtd_v23_granularity_guard_q3_4b_full50.jsonl
+qwen3-8b,hotpotqa,50,76.0,77.62,80.0,24.8,results/ldt/v23/hotpotqa_ldtd_v23_granularity_guard_q3_8b_full50.jsonl
+qwen2.5-14b,musique,50,68.0,69.68,64.0,37.5,results/ldt/v23/musique_ldtd_v23_granularity_guard_q25_14b_full50.jsonl
+qwen3-8b,musique,50,64.0,68.16,62.0,29.84,results/ldt/v23/musique_ldtd_v23_granularity_guard_q3_8b_full50.jsonl
+qwen2.5-14b,strategyqa,50,92.0,92.0,92.0,39.66,results/ldt/v23/strategyqa_ldtd_v23_granularity_guard_q25_14b_full50.jsonl
+qwen3-8b,strategyqa,50,90.0,90.0,90.0,22.56,results/ldt/v23/strategyqa_ldtd_v23_granularity_guard_q3_8b_full50.jsonl

@@ -1,0 +1,188 @@
+{
+  "id": "2hop__362107_652514",
+  "dataset": "musique",
+  "question": "In which borough was Callum McManaman born?",
+  "gold": "Knowsley",
+  "pred": "Knowsley",
+  "correct": 1.0,
+  "calls": 25,
+  "algorithm": "ldtv5",
+  "evidence_plans": [
+    {
+      "answer_slot": "borough of birth",
+      "bridge_chain": "Callum McManaman -> born in Whiston -> Whiston is in the Metropolitan Borough of Knowsley",
+      "selected_titles": [
+        "Callum McManaman",
+        "Whiston, Merseyside"
+      ],
+      "answer": "Metropolitan Borough of Knowsley",
+      "confidence": 1.0
+    },
+    {
+      "answer_slot": "borough",
+      "bridge_chain": "Callum McManaman -> born in Whiston -> Whiston -> Metropolitan Borough of Knowsley",
+      "selected_titles": [
+        "Callum McManaman",
+        "Whiston, Merseyside"
+      ],
+      "answer": "Knowsley",
+      "confidence": 1.0
+    },
+    {
+      "answer_slot": "borough of birth",
+      "bridge_chain": "Callum McManaman -> born in Whiston -> Whiston is in the Metropolitan Borough of Knowsley",
+      "selected_titles": [
+        "Callum McManaman",
+        "Whiston, Merseyside"
+      ],
+      "answer": "Metropolitan Borough of Knowsley",
+      "confidence": 0.95
+    }
+  ],
+  "resolved_evidence_plan": {
+    "answer_slot": "borough of birth",
+    "bridge_chain": "Callum McManaman -> born in Whiston -> Whiston is in the Metropolitan Borough of Knowsley",
+    "selected_titles": [
+      "Callum McManaman",
+      "Whiston, Merseyside"
+    ],
+    "answer": "Metropolitan Borough of Knowsley",
+    "confidence": 1.0,
+    "use_focused_context": true,
+    "reason": "Plan 0 and Plan 2 provide identical evidence chains with high confidence. Plan 0 has a confidence of 1.0 compared to Plan 2's 0.95. The chain explicitly links the subject to the specific borough name 'Metropolitan Borough of Knowsley' which matches the question's request for the borough. Plan 1 is less precise as it shortens the answer to just 'Knowsley'. Therefore, Plan 0 is selected for the highest confidence and exact wording match."
+  },
+  "plan_validation": {
+    "supported": true,
+    "edge_support": [
+      {
+        "edge": "Callum McManaman -> born in Whiston",
+        "supported": true,
+        "evidence": "Born in Whiston, Merseyside"
+      },
+      {
+        "edge": "Whiston is in the Metropolitan Borough of Knowsley",
+        "supported": true,
+        "evidence": "Whiston is a large village and civil parish within the Metropolitan Borough of Knowsley in Merseyside, England"
+      }
+    ],
+    "confidence": 1.0,
+    "reason": "Both edges in the bridge chain are explicitly supported by direct quotes from the provided passages. The first passage confirms the birth location, and the second passage confirms the administrative borough of that location.",
+    "raw": "{\n\"supported\": true,\n\"edge_support\": [\n{\"edge\": \"Callum McManaman -> born in Whiston\", \"supported\": true, \"evidence\": \"Born in Whiston, Merseyside\"},\n{\"edge\": \"Whiston is in the Metropolitan Borough of Knowsley\", \"supported\": true, \"evidence\": \"Whiston is a large village and civil parish within the Metropolitan Borough of Knowsley in Merseyside, England\"}\n],\n\"confidence\": 1.0,\n\"reason\": \"Both edges in the bridge chain are explicitly supported by direct quotes from the provided passages. The first passage confirms the birth location, and the second passage confirms the administrative borough of that location.\"\n}"
+  },
+  "contract_selection": {
+    "chosen_id": "full",
+    "model_chosen_id": "full",
+    "accepted_non_full": false,
+    "nonanswer_replaced": false,
+    "full_value": 1.48,
+    "chosen_value": 1.48,
+    "leaf_values": {
+      "full": 1.48,
+      "focused_evidence": 1.26
+    },
+    "scores": [
+      {
+        "candidate_id": "Knowsley",
+        "answers_question": true,
+        "answer_type_match": true,
+        "supported": true,
+        "minimal": true,
+        "confidence": 1.0,
+        "reason": "The bridge chain explicitly links Callum McManaman to Whiston, and Whiston to the Metropolitan Borough of Knowsley. 'Knowsley' is the minimal, direct answer to 'In which borough...'. The full_tree candidate 'Metropolitan Borough of Knowsley' includes redundant phrasing ('Metropolitan Borough of') not required by the question's specific request for the borough name."
+      },
+      {
+        "candidate_id": "Metropolitan Borough of Knowsley",
+        "answers_question": true,
+        "answer_type_match": true,
+        "supported": true,
+        "minimal": false,
+        "confidence": 0.9,
+        "reason": "Supported by the passages, but less minimal than 'Knowsley' as it includes the descriptive prefix 'Metropolitan Borough of' which is not strictly necessary to answer 'In which borough...'"
+      }
+    ],
+    "leaves": [
+      {
+        "candidate_id": "full",
+        "source": "full_tree",
+        "answer": "Knowsley",
+        "default": true
+      },
+      {
+        "candidate_id": "focused_evidence",
+        "source": "focused_evidence_tree",
+        "answer": "Metropolitan Borough of Knowsley",
+        "default": false
+      }
+    ],
+    "raw": "{\n  \"chosen_id\": \"Knowsley\",\n  \"scores\": [\n    {\n      \"candidate_id\": \"Knowsley\",\n      \"answers_question\": true,\n      \"answer_type_match\": true,\n      \"supported\": true,\n      \"minimal\": true,\n      \"confidence\": 1.0,\n      \"reason\": \"The bridge chain explicitly links Callum McManaman to Whiston, and Whiston to the Metropolitan Borough of Knowsley. 'Knowsley' is the minimal, direct answer to 'In which borough...'. The full_tree candidate 'Metropolitan Borough of Knowsley' includes redundant phrasing ('Metropolitan Borough of') not required by the question's specific request for the borough name.\"\n    },\n    {\n      \"candidate_id\": \"Metropolitan Borough of Knowsley\",\n      \"answers_question\": true,\n      \"answer_type_match\": true,\n      \"supported\": true,\n      \"minimal\": false,\n      \"confidence\": 0.9,\n      \"reason\": \"Supported by the passages, but less minimal than 'Knowsley' as it includes the descriptive prefix 'Metropolitan Borough of' which is not strictly necessary to answer 'In which borough...'\"\n    }\n  ],\n  \"reason\": \"Both candidates are supported by the evidence chain. However, 'Knowsley' is the preferred terminal leaf because it is the most minimal form of the answer, directly satisfying the question 'In which borough...' without the redundant administrative descriptor present in the other candidate.\"\n}",
+    "reason": "Both candidates are supported by the evidence chain. However, 'Knowsley' is the preferred terminal leaf because it is the most minimal form of the answer, directly satisfying the question 'In which borough...' without the redundant administrative descriptor present in the other candidate."
+  },
+  "projection_agreement_audit": {
+    "changed": false,
+    "reason": "audit-not-confident",
+    "groups": [
+      {
+        "group_id": "g0",
+        "key": "knowsley",
+        "answer": "Knowsley",
+        "sources": [
+          "full"
+        ],
+        "source_ids": [
+          "full"
+        ]
+      },
+      {
+        "group_id": "g1",
+        "key": "metropolitan borough of knowsley",
+        "answer": "Metropolitan Borough of Knowsley",
+        "sources": [
+          "focused_evidence",
+          "focused_contract"
+        ],
+        "source_ids": [
+          "focused_evidence",
+          "focused_contract"
+        ]
+      }
+    ],
+    "raw": {
+      "chosen_group": "g0",
+      "confidence": 0.0,
+      "reason": "The provided passages contain no information regarding Callum McManaman's birthplace or any borough associated with him. The only mention of a 'Callum' is Callum Blue (actor) in the 'Love and War in the Apennines' passage, and Callum Kane (fictional character) in the 'Callum Kane' passage. Neither supports the claim of birth in Knowsley. The plan validation is invalid as the supporting evidence does not exist in the text."
+    },
+    "raw_text": "{\"chosen_group\":\"g0\",\"confidence\":0.0,\"reason\":\"The provided passages contain no information regarding Callum McManaman's birthplace or any borough associated with him. The only mention of a 'Callum' is Callum Blue (actor) in the 'Love and War in the Apennines' passage, and Callum Kane (fictional character) in the 'Callum Kane' passage. Neither supports the claim of birth in Knowsley. The plan validation is invalid as the supporting evidence does not exist in the text.\"}"
+  },
+  "tree_predictions": {
+    "full": "Knowsley",
+    "focused_evidence": "Metropolitan Borough of Knowsley",
+    "focused_contract": "Metropolitan Borough of Knowsley"
+  },
+  "full_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  },
+  "focused_evidence_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  },
+  "focused_contract_inner": {
+    "present": true,
+    "pred": null,
+    "calls": null,
+    "final_debate": {
+      "chosen_path": null,
+      "resolution": null
+    }
+  }
+}

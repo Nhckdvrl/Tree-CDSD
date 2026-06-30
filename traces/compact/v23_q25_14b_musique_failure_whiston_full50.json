@@ -1,0 +1,366 @@
+{
+  "id": "2hop__362107_652514",
+  "dataset": "musique",
+  "question": "In which borough was Callum McManaman born?",
+  "gold": "Knowsley",
+  "pred": "Whiston",
+  "correct": 0.0,
+  "calls": 48,
+  "n_debates": 1,
+  "algorithm": "ldtd",
+  "config": {
+    "max_depth": 5,
+    "per_parent_beam": 2,
+    "global_beam": 6,
+    "debate_budget": 24,
+    "debate_rounds": 1,
+    "uncertain_threshold": 0.52,
+    "final_confidence": 0.82,
+    "min_depth_before_final": 1,
+    "final_top_paths": 8,
+    "llm_merge": true,
+    "force_keep_best": true,
+    "use_contract": false,
+    "use_synthesis": false,
+    "use_slot_grounding": false,
+    "use_terminality_debate": true,
+    "keep_contested_terminals": true,
+    "open_frontier_patience": true,
+    "effective_open_frontier_patience": false,
+    "open_frontier_margin": 0.12,
+    "strict_role_edges": false,
+    "strict_role_edges_mode": "auto"
+  },
+  "nodes": [
+    {
+      "node_id": "n1",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Callum McManaman was born in Whiston.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n2",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Callum McManaman was born in Whiston.",
+      "score": 0.54,
+      "status": "uncertain",
+      "is_final": true,
+      "answer": "Whiston",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n3",
+      "depth": 2,
+      "parent_id": "n1",
+      "text": "Whiston is a village within the Metropolitan Borough of Knowsley in Merseyside, England.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n4",
+      "depth": 3,
+      "parent_id": "n3",
+      "text": "Whiston is within Merseyside.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n5",
+      "depth": 4,
+      "parent_id": "n4",
+      "text": "Merseyside is a county that contains multiple boroughs. Whiston is specifically mentioned as being within the Metropolitan Borough of Knowsley in Merseyside.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1
+      ]
+    },
+    {
+      "node_id": "n6",
+      "depth": 4,
+      "parent_id": "n4",
+      "text": "Merseyside is a metropolitan county.",
+      "score": 0.7791666666666667,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        2
+      ]
+    },
+    {
+      "node_id": "n7",
+      "depth": 5,
+      "parent_id": "n5",
+      "text": "Callum McManaman was born in the Metropolitan Borough of Knowsley.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "node_id": "n8",
+      "depth": 5,
+      "parent_id": "n6",
+      "text": "Merseyside consists of multiple boroughs.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "layer_summaries": [
+    {
+      "depth": 1,
+      "frontier_in": [
+        "n0"
+      ],
+      "frontier_out": [
+        "n1"
+      ],
+      "parents": [
+        {
+          "parent_id": "n0",
+          "proposal_count": 3,
+          "candidate_count": 1,
+          "relations": {
+            "used": false,
+            "reason": "single-candidate"
+          },
+          "terminality": [
+            {
+              "candidate_id": "n0_d1_c0",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "borough",
+              "action": null
+            },
+            {
+              "candidate_id": "n0_d1_c0_contested_terminal",
+              "is_terminal": true,
+              "answer": "Whiston",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            }
+          ],
+          "added_children": [
+            "n1",
+            "n2"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 2,
+      "frontier_in": [
+        "n1"
+      ],
+      "frontier_out": [
+        "n3"
+      ],
+      "parents": [
+        {
+          "parent_id": "n1",
+          "proposal_count": 3,
+          "candidate_count": 1,
+          "relations": {
+            "used": false,
+            "reason": "single-candidate"
+          },
+          "terminality": [],
+          "added_children": [
+            "n3"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 3,
+      "frontier_in": [
+        "n3"
+      ],
+      "frontier_out": [
+        "n4"
+      ],
+      "parents": [
+        {
+          "parent_id": "n3",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [],
+          "added_children": [
+            "n4"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 4,
+      "frontier_in": [
+        "n4"
+      ],
+      "frontier_out": [
+        "n5",
+        "n6"
+      ],
+      "parents": [
+        {
+          "parent_id": "n4",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n4_d4_c0",
+              "is_terminal": false,
+              "answer": "",
+              "missing_hop": "Metropolitan Borough of Knowsley",
+              "action": null
+            },
+            {
+              "candidate_id": "n4_d4_c0_contested_terminal",
+              "is_terminal": true,
+              "answer": "Whiston is specifically mentioned as being within the Metropolitan Borough of Knowsley in Merseyside.",
+              "missing_hop": null,
+              "action": "retain_contested_terminal_branch"
+            }
+          ],
+          "added_children": [
+            "n5",
+            "n6"
+          ]
+        }
+      ],
+      "stop": null
+    },
+    {
+      "depth": 5,
+      "frontier_in": [
+        "n5",
+        "n6"
+      ],
+      "frontier_out": [
+        "n7",
+        "n8"
+      ],
+      "parents": [
+        {
+          "parent_id": "n5",
+          "proposal_count": 3,
+          "candidate_count": 1,
+          "relations": {
+            "used": false,
+            "reason": "single-candidate"
+          },
+          "terminality": [],
+          "added_children": [
+            "n7"
+          ]
+        },
+        {
+          "parent_id": "n6",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n6_d5_challenge_a2",
+              "is_terminal": true,
+              "answer": "Metropolitan Borough of Knowsley",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n8"
+          ]
+        }
+      ],
+      "stop": null
+    }
+  ],
+  "final_path_debate": {
+    "debated": true,
+    "reason": "terminal_path_cross_examination",
+    "chosen_path": "p0",
+    "resolution": {
+      "answer": "Whiston",
+      "chosen_path": "p0",
+      "confidence": "1.0",
+      "rationale": "All debaters agreed that path p0 correctly identifies Whiston as the location where Callum McManaman was born, matching the question's request for a concrete name of a borough."
+    },
+    "path_count": 1
+  }
+}

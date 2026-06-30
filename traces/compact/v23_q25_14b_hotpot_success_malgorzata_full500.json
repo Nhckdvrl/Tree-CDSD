@@ -1,0 +1,121 @@
+{
+  "id": "5a8b57f25542995d1e6f1371",
+  "dataset": "hotpotqa",
+  "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+  "gold": "yes",
+  "pred": "yes",
+  "correct": 1.0,
+  "calls": 13,
+  "n_debates": 1,
+  "algorithm": "ldtd",
+  "config": {
+    "max_depth": 5,
+    "per_parent_beam": 2,
+    "global_beam": 6,
+    "debate_budget": 24,
+    "debate_rounds": 1,
+    "uncertain_threshold": 0.52,
+    "final_confidence": 0.82,
+    "min_depth_before_final": 1,
+    "final_top_paths": 8,
+    "llm_merge": true,
+    "force_keep_best": true,
+    "use_contract": false,
+    "use_synthesis": false,
+    "use_slot_grounding": false,
+    "use_terminality_debate": true,
+    "keep_contested_terminals": true,
+    "open_frontier_patience": true,
+    "effective_open_frontier_patience": false,
+    "open_frontier_margin": 0.12,
+    "strict_role_edges": false,
+    "strict_role_edges_mode": "auto"
+  },
+  "nodes": [
+    {
+      "node_id": "n1",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Scott Derrickson and Ed Wood are both American.",
+      "score": 1.0,
+      "status": "accepted",
+      "is_final": true,
+      "answer": "yes",
+      "support_agents": [
+        0,
+        1
+      ]
+    },
+    {
+      "node_id": "n2",
+      "depth": 1,
+      "parent_id": "n0",
+      "text": "Scott Derrickson is an American director, screenwriter and producer.",
+      "score": 0.9400000000000001,
+      "status": "accepted",
+      "is_final": false,
+      "answer": "",
+      "support_agents": [
+        2
+      ]
+    }
+  ],
+  "layer_summaries": [
+    {
+      "depth": 1,
+      "frontier_in": [
+        "n0"
+      ],
+      "frontier_out": [
+        "n2"
+      ],
+      "parents": [
+        {
+          "parent_id": "n0",
+          "proposal_count": 3,
+          "candidate_count": 2,
+          "relations": [
+            {
+              "type": "compatible",
+              "members": [
+                0,
+                1
+              ],
+              "reason": "no local conflict detected"
+            }
+          ],
+          "terminality": [
+            {
+              "candidate_id": "n0_d1_c0",
+              "is_terminal": true,
+              "answer": "yes",
+              "missing_hop": "",
+              "action": null
+            }
+          ],
+          "added_children": [
+            "n1",
+            "n2"
+          ]
+        }
+      ],
+      "stop": {
+        "reason": "confident_debated_path",
+        "node_id": "n1",
+        "path_score": 1.0
+      }
+    }
+  ],
+  "final_path_debate": {
+    "debated": true,
+    "reason": "terminal_path_cross_examination",
+    "chosen_path": "p0",
+    "resolution": {
+      "answer": "yes",
+      "chosen_path": "p0",
+      "confidence": 1.0,
+      "rationale": "Both Scott Derrickson and Ed Wood are confirmed to be American, making them of the same nationality."
+    },
+    "path_count": 1
+  }
+}

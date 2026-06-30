@@ -1,0 +1,6 @@
+dataset,n,v62_local_em,v62_local_f1,v62_judge,v4_best_version,v4_best_judge,v3_judge,cdsd_judge,v62_minus_v4_best,v62_minus_v3,v62_minus_cdsd
+hotpotqa,500,75.6,80.31,84.6,v49,83.8,83.4,83.2,0.8,1.2,1.4
+2wikimultihopqa,500,84.0,78.23,82.4,v49,82.4,82.2,82.2,-0.0,0.2,0.2
+musique,500,75.8,75.48,71.4,v410,70.0,65.2,65.2,1.4,6.2,6.2
+strategyqa,500,95.8,95.8,95.8,v49,95.8,95.8,95.8,0.0,0.0,0.0
+macro,-,82.8,82.45,83.55,-,83.0,81.65,81.6,0.55,1.9,1.95

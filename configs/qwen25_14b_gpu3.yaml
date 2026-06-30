@@ -1,0 +1,46 @@
+model: qwen2.5-14b-instruct
+endpoint: http://localhost:8230/v1
+api_key: EMPTY
+max_tokens: 1024
+n_agents: 3
+
+personas:
+  - "You are a careful, methodical problem-solver. Work step by step and double-check every arithmetic and factual step before moving on."
+  - "You are a skeptical analyst. Question assumptions, watch for misread details and common mistakes, and verify each step independently."
+  - "You are a resourceful solver who considers alternative interpretations and solution paths before committing to an answer."
+temperatures: [0.7, 0.7, 0.9]
+
+personas_soft:
+  - "You are a careful solver. Re-derive each step from the given facts and passages, and carry the reasoning through to a concrete answer."
+  - "You are a verifier. Check each step against the facts/passages and combine information across them when needed; prefer a concrete conclusion unless the facts truly conflict."
+  - "You are a solver who connects evidence across passages to finish the multi-hop chain and commits to the most supported answer."
+temperatures_soft: [0.6, 0.6, 0.8]
+
+cot:
+  temperature: 0.0
+sc:
+  samples: 3
+  temperature: 0.8
+mad:
+  rounds: 2
+cdsd:
+  max_iters: 6
+  debate_rounds: 1
+
+ldtv3:
+  final_top_paths: 12
+  max_branch_nodes: 8
+  no_commit_select: false
+  verified_final: false
+  audit_consensus: false
+  recover_nonanswer: true
+  minimal_final_audit: false
+
+ldtv5:
+  final_top_paths: 12
+  max_branch_nodes: 8
+  no_commit_select: false
+  verified_final: false
+  audit_consensus: false
+  recover_nonanswer: true
+  minimal_final_audit: true
