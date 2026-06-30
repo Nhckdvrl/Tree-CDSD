@@ -1,0 +1,16 @@
+model,dataset,n,local_final_em_pct,full_tree_answer_em_proxy_pct,delta_final_minus_full_proxy,final_changed_from_full_count,changed_correct_count,changed_wrong_count
+qwen3.5-9b,HotpotQA,500,75.6,64.2,11.4,44,27,17
+qwen3.5-9b,2WikiMultiHopQA,500,84.0,68.6,15.4,22,10,12
+qwen3.5-9b,MuSiQue,500,75.8,54.4,21.4,97,66,31
+qwen3.5-9b,StrategyQA,500,95.8,95.8,0.0,1,0,1
+qwen3-8b,HotpotQA,500,73.0,61.2,11.8,30,20,10
+qwen3-8b,2WikiMultiHopQA,500,83.6,68.8,14.8,20,10,10
+qwen3-8b,MuSiQue,500,63.8,46.8,17.0,68,26,42
+qwen3-8b,StrategyQA,500,93.0,93.0,0.0,0,0,0
+qwen2.5-14b,HotpotQA,500,72.8,57.0,15.8,72,39,33
+qwen2.5-14b,2WikiMultiHopQA,500,83.2,62.2,21.0,44,30,14
+qwen2.5-14b,MuSiQue,500,65.0,40.4,24.6,97,61,36
+qwen2.5-14b,StrategyQA,500,94.0,94.0,0.0,0,0,0
+qwen3.5-9b,Macro,,82.8,70.75,12.05,164,103,61
+qwen3-8b,Macro,,78.35,67.45,10.9,118,56,62
+qwen2.5-14b,Macro,,78.75,63.4,15.35,213,130,83

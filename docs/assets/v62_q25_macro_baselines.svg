@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420">
+  <rect width="960" height="420" fill="#ffffff"/>
+  <text x="480" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#111827">Qwen2.5-14B full500 macro comparison</text>
+  <text x="24" y="205" transform="rotate(-90 24 205)" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#374151">32B judge accuracy (%)</text>
+  <line x1="90" y1="330" x2="930" y2="330" stroke="#9ca3af" stroke-width="1"/>
+  <line x1="90" y1="70" x2="90" y2="330" stroke="#9ca3af" stroke-width="1"/>
+  <text x="78" y="334" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">60</text>
+  <line x1="86" y1="330" x2="930" y2="330" stroke="#e5e7eb"/>
+  <text x="78" y="269" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">65</text>
+  <line x1="86" y1="265" x2="930" y2="265" stroke="#e5e7eb"/>
+  <text x="78" y="204" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">70</text>
+  <line x1="86" y1="200" x2="930" y2="200" stroke="#e5e7eb"/>
+  <text x="78" y="139" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">75</text>
+  <line x1="86" y1="135" x2="930" y2="135" stroke="#e5e7eb"/>
+  <text x="78" y="74" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#6b7280">80</text>
+  <line x1="86" y1="70" x2="930" y2="70" stroke="#e5e7eb"/>
+  <g font-family="Arial, sans-serif" font-size="11" fill="#111827">
+    <rect x="116" y="139" width="54" height="191" fill="#6b7280"/><text x="143" y="132" text-anchor="middle">74.75</text><text x="143" y="352" text-anchor="middle">CoT</text>
+    <rect x="206" y="111" width="54" height="219" fill="#6b7280"/><text x="233" y="104" text-anchor="middle">76.90</text><text x="233" y="352" text-anchor="middle">SC</text>
+    <rect x="296" y="115" width="54" height="215" fill="#6b7280"/><text x="323" y="108" text-anchor="middle">76.65</text><text x="323" y="352" text-anchor="middle">Consensus</text>
+    <rect x="386" y="133" width="54" height="197" fill="#6b7280"/><text x="413" y="126" text-anchor="middle">75.25</text><text x="413" y="352" text-anchor="middle">MAD</text>
+    <rect x="476" y="288" width="54" height="42" fill="#6b7280"/><text x="503" y="281" text-anchor="middle">63.20</text><text x="503" y="352" text-anchor="middle">dMAD</text>
+    <rect x="566" y="90" width="54" height="240" fill="#9ca3af"/><text x="593" y="83" text-anchor="middle">78.50</text><text x="593" y="352" text-anchor="middle">CDSD-S</text>
+    <rect x="656" y="92" width="54" height="238" fill="#9ca3af"/><text x="683" y="85" text-anchor="middle">78.35</text><text x="683" y="352" text-anchor="middle">CDSD-J</text>
+    <rect x="746" y="90" width="54" height="240" fill="#9ca3af"/><text x="773" y="83" text-anchor="middle">78.50</text><text x="773" y="352" text-anchor="middle">CDSD-GT</text>
+    <rect x="836" y="74" width="54" height="256" fill="#2563eb"/><text x="863" y="67" text-anchor="middle">79.80</text><text x="863" y="352" text-anchor="middle">v6.2</text>
+  </g>
+</svg>
+
