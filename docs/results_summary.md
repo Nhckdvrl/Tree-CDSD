@@ -47,7 +47,28 @@ Macro judge accuracy:
 
 Qwen3-32B baseline 正在主项目中补跑，尚未写入本包。
 
-## 3. Qwen3-8B：v8 / v6.2 full500 与原始 baseline
+## 3. Qwen3-4B：v6.2 full500 与原始 baseline
+
+Qwen3-4B 的 v6.2 full500 已使用同一个 Qwen2.5-32B LLM-judge 复评，共 2000 条逐条 judge，`judge_errors=0`。
+
+来源：
+
+- `tables/qwen3_4b_v62_full500_against_baselines.csv`
+- `raw_metrics/v62_q3_4b_full500_q32judge_summary.csv`
+- `raw_metrics/v62_q3_4b_full500_q32judge.jsonl`
+
+| 方法 | n | HotpotQA | 2Wiki | MuSiQue | StrategyQA | Macro |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| CoT | 500 | 78.40 | 72.40 | 52.40 | 90.60 | 73.45 |
+| Self-Consistency | 500 | 80.00 | 71.20 | 52.20 | 90.80 | 73.55 |
+| Consensus | 500 | 78.60 | 76.20 | 57.80 | 87.60 | 75.05 |
+| MAD | 500 | 79.40 | 75.20 | 55.20 | 81.40 | 72.80 |
+| dMAD | 500 | 78.00 | 71.60 | 52.20 | 75.60 | 69.35 |
+| v6.2 | 500 | 78.00 | 75.60 | 56.40 | 93.40 | 75.85 |
+
+结论：在 Qwen3-4B full500 上，v6.2 Macro 为 75.85，略高于最强原始 baseline Consensus 的 75.05。这个优势比 Qwen3-8B 更薄，并且不是逐数据集全胜：HotpotQA、2Wiki、MuSiQue 上仍低于对应最强 baseline，主要依靠 StrategyQA 的稳定收束和整体平均取得小幅领先。因此它适合支撑“低配 Qwen3 上 v6.2 仍有 macro 级别收益”，但不应被写成强优势结果。
+
+## 4. Qwen3-8B：v8 / v6.2 full500 与原始 baseline
 
 现在 Qwen3-8B 的原始 baseline、v8、v6.2 都是 full500，并用同一个 Qwen2.5-32B LLM-judge 进行评估，因此这组可以作为同模型、同规模的直接对照。
 
@@ -63,7 +84,7 @@ Qwen3-32B baseline 正在主项目中补跑，尚未写入本包。
 
 结论：在 Qwen3-8B full500 上，v6.2 的 Macro 为 79.50，高于最强原始 baseline Consensus 的 77.40；v8 Macro 为 73.15，低于原始 baseline。v8 更适合作为“自由抽点、合并、冲突判断路线”的失败/诊断版本，而不是当前性能主结果。
 
-## 4. Qwen3.5-9B：已有 baseline 参考
+## 5. Qwen3.5-9B：已有 baseline 参考
 
 当前 Qwen3.5-9B 的原始 baseline 是 n=150，v6.2 是 full500，同样只能看趋势。
 

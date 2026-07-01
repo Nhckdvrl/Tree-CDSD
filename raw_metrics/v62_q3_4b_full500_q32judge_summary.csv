@@ -1,0 +1,6 @@
+model,dataset,method,n,judge_correct,judge_acc_pct,judge_errors,local_em_pct
+q3_4b,2wikimultihopqa,ldtv5,500,378,75.6,0,76.4
+q3_4b,hotpotqa,ldtv5,500,390,78.0,0,69.6
+q3_4b,musique,ldtv5,500,282,56.4,0,58.4
+q3_4b,strategyqa,ldtv5,500,467,93.4,0,93.4
+q3_4b,Macro,ldtv5,2000,1517,75.85,0,74.45
