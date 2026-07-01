@@ -14,6 +14,7 @@ extra context.
 | `v7_debate_tree` | `src/ldt_debate_tree` | Explicit debate-tree baseline with local conflict debate and final path debate. |
 | `v8_contested_terminal` | `src/ldt_debate_tree` | Adds terminality debate and contested terminal branches; this is the cleanest version of the original open-node debate idea. |
 | `v23_adaptive_role_edge` | `src/ldt_debate_tree` | Adds role-edge, open-frontier, granularity, and binary stance guards; kept mainly for failure/boundary analysis. |
+| `chain_structured_nodes` | `src/cdsd` | Chain-CDSD structured-node extraction, indexed conflict localization, local segment debate, and commit gate. This is the reusable base for future graph redesign. |
 
 ## Shared Runtime Snapshot
 

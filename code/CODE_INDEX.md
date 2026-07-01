@@ -29,6 +29,11 @@ The same list is also summarized in `selected_versions/README.md`.
   - 默认开启 terminality debate、contested terminal、open-frontier patience、auto strict role-edge、granularity guard、binary stance vote。
   - trace 写入 `algorithm_version="v23_adaptive_role_edge"`。
 
+- `selected_versions/chain_structured_nodes/src/cdsd`
+  - chain-CDSD 的结构化中间节点实现。
+  - 包含 `cdsdj`、v12 indexed segment debate、`cdsdnga` 的 node extractor / conflict localization / local segment debate / commit gate。
+  - 后续 Tree/Graph-CDSD 重新设计时，应优先复用这里的 typed node chain，而不是继续 v8 的自由 next-hop 抽点。
+
 ## 可运行快照
 
 `runnable_snapshot/src` 保留了原项目的 import 结构：
