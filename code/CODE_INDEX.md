@@ -2,6 +2,8 @@
 
 ## 阅读用版本代码
 
+The same list is also summarized in `selected_versions/README.md`.
+
 - `selected_versions/v0_initial/src/ldt`
   - 最初的 Layerwise Debate Tree。
   - 包含 proposal、merge、relation judge、local debate、beam 选择、final path selection。
@@ -9,12 +11,23 @@
 - `selected_versions/v62_triproj/src/ldt_v5`
   - v6.2 三投影证据树。
   - 核心入口是 `algorithm.py` 中的 evidence plan、resolved plan、三投影 reasoning tree、terminal leaf selection。
+  - 详见 `selected_versions/v62_triproj/README.md`。
 
-- `selected_versions/v7_v8_v23_debate_tree/src/ldt_debate_tree`
-  - v7/v8/v23 共用的树上多 agent debate 代码线。
-  - 当前文件状态对应最新 v23，v7/v8 的差异在文档和运行配置中说明。
-  - v8 主体对应 terminality debate 和 contested terminal branch。
-  - v23 在此基础上加入 strict role-edge、open-frontier patience、granularity guard、binary stance vote 等 guarded 组件。
+- `selected_versions/v7_debate_tree/src/ldt_debate_tree`
+  - v7 显式树上多 agent debate。
+  - 默认关闭 terminality debate、contested terminal、role-edge、open-frontier、granularity、binary stance vote。
+  - trace 写入 `algorithm_version="v7_debate_tree"`。
+
+- `selected_versions/v8_contested_terminal/src/ldt_debate_tree`
+  - v8 争议终点辩论树。
+  - 默认开启 terminality debate 和 contested terminal branch。
+  - 默认关闭 v23 的 role-edge、open-frontier、granularity、binary stance vote。
+  - trace 写入 `algorithm_version="v8_contested_terminal"`。
+
+- `selected_versions/v23_adaptive_role_edge/src/ldt_debate_tree`
+  - v23 adaptive role-edge guarded 版本。
+  - 默认开启 terminality debate、contested terminal、open-frontier patience、auto strict role-edge、granularity guard、binary stance vote。
+  - trace 写入 `algorithm_version="v23_adaptive_role_edge"`。
 
 ## 可运行快照
 
@@ -44,4 +57,3 @@
 - `base.yaml`
 
 当前多 agent 设定是同一基础模型的 3 个 persona agent，温度通常为 `[0.6, 0.6, 0.8]` 或 `[0.7, 0.7, 0.9]`。referee、merger、relation judge 通常使用同一 client 的低温调用，不是单独的强模型。
-

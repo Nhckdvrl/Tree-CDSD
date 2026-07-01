@@ -1,0 +1,8 @@
+method,n,hotpotqa,2wiki,musique,strategyqa,macro
+CoT,500,79.00,79.60,54.60,91.80,76.25
+Self-Consistency,500,80.80,76.40,55.80,91.40,76.10
+Consensus,500,79.60,80.20,59.00,90.80,77.40
+MAD,500,79.00,78.60,57.60,88.00,75.80
+dMAD,500,72.40,73.20,47.80,68.40,65.45
+v6.2 Tri-Projection Evidence Debate Tree,500,82.00,83.40,59.60,93.00,79.50
+v8 Contested Terminal Debate Tree,500,77.20,73.40,50.40,91.60,73.15

@@ -1,0 +1,10 @@
+method,n,HotpotQA,2Wiki,MuSiQue,StrategyQA,Macro
+CoT,150,77.33,78.0,58.67,92.67,76.67
+Self-Consistency,150,76.0,82.0,53.33,89.33,75.16
+Consensus,150,77.33,79.33,62.67,88.0,76.83
+MAD,150,78.0,80.67,60.67,87.33,76.67
+dMAD,150,74.67,80.0,54.67,70.67,70.0
+CDSD-JudgeFix,150,80.0,80.0,65.33,90.67,79.0
+CDSD-Granularity+Type,150,80.67,80.67,62.0,92.0,78.84
+CDSD best per dataset,150,80.67,80.67,65.33,92.0,79.67
+v8 Contested Terminal Tree,500,77.2,73.4,50.4,91.6,73.15
